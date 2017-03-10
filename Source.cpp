@@ -6,7 +6,9 @@
 #include <fstream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#ifdef _WIN32
 #include <windows.h>
+#endif
 
 /* http://h-deb.clg.qc.ca/Sujets/AuSecours/Afficher--Accents.html */
 
@@ -36,12 +38,12 @@ int main()
 	while (true)
 	{
 		string s = v.at(rand() % v.size());
-
+#ifdef _WIN32
 		// Conversion pour console
 		vector<char> v(s.size() + 1);
 		AnsiToOem(s.c_str(), &v[0]);
 		s = string(begin(v), end(v));
-
+#endif
 		// Affichage
 		cout << s << endl;
 
@@ -50,7 +52,9 @@ int main()
 		do
 		{
 			getline(cin, t);
+#ifdef _WIN32
 			t += '\0';
+#endif
 		} while (t != s);
 	}
 
