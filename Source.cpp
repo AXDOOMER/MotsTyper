@@ -14,11 +14,23 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
 	// Chargement
 	ifstream fichier;
-	fichier.open("mots.txt");
+	string source = "mots.txt";
+
+	// Le fichier source peut être chang�
+	if (argc == 2)
+	{
+		source = argv[1];
+	}
+	fichier.open(source.c_str());
+	if (!fichier.good())
+	{
+		cerr << "Fichier introuvable" << endl;
+		return 1;
+	}
 
 	// Storage des mots
 	vector<string> v;
