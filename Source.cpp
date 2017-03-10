@@ -20,12 +20,13 @@ int main(int argc, char* argv[])
 	ifstream fichier;
 	string source = "mots.txt";
 
-	// Le fichier source peut Ãªtre changï¿½
+	// Le fichier source peut être changé
 	if (argc == 2)
 	{
 		source = argv[1];
 	}
 	fichier.open(source.c_str());
+	// Vérification à savoir si le fichier a bien pu être chargé
 	if (!fichier.good())
 	{
 		cerr << "Fichier introuvable" << endl;
@@ -69,5 +70,4 @@ int main(int argc, char* argv[])
 #endif
 		} while (t != s);
 	}
-
 }
