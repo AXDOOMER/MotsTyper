@@ -8,6 +8,8 @@
 #include <time.h>       /* time */
 #include <windows.h>
 
+/* http://h-deb.clg.qc.ca/Sujets/AuSecours/Afficher--Accents.html */
+
 using namespace std;
 
 int main()
