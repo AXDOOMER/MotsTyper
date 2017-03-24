@@ -6,6 +6,7 @@
 #include <fstream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#inlcude <algorithm>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -40,7 +41,15 @@ int main(int argc, char* argv[])
 	string ligne;
 	while (getline(fichier, ligne))
 	{
-		v.push_back(ligne);
+		// Enlever les espaces pour le test de la ligne vide
+		string copie = ligne;
+		remove(copie.begin(), copie.end(), ' ');
+
+		// Ne pas ajouter une ligne vide
+		if (copie.length() > 0)
+		{
+			v.push_back(ligne);
+		}
 	}
 
 	// Fermeture du fichier et initialisation du RNG
