@@ -1,4 +1,4 @@
-/* Copyright (c) Alexandre-Xavier Labonté-Lamoureux  2016-2017 */
+/* Copyright (c) 2016-2017 Alexandre-Xavier Labonté-Lamoureux */
 
 #include <iostream>
 #include <string>
@@ -6,12 +6,9 @@
 #include <fstream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
-#inlcude <algorithm>
 #ifdef _WIN32
 #include <windows.h>
 #endif
-
-/* http://h-deb.clg.qc.ca/Sujets/AuSecours/Afficher--Accents.html */
 
 using namespace std;
 
@@ -41,12 +38,13 @@ int main(int argc, char* argv[])
 	string ligne;
 	while (getline(fichier, ligne))
 	{
-		// Enlever les espaces pour le test de la ligne vide
-		string copie = ligne;
-		remove(copie.begin(), copie.end(), ' ');
+		// Ne pas ajouter une ligne vide ou des espaces suivant la fin d'un mot
+		while (ligne.length() > 0 && ligne[ligne.size() - 1] == ' ')
+		{
+			ligne.pop_back();
+		}
 
-		// Ne pas ajouter une ligne vide
-		if (copie.length() > 0)
+		if (ligne.length() > 0)
 		{
 			v.push_back(ligne);
 		}
@@ -61,7 +59,7 @@ int main(int argc, char* argv[])
 	{
 		string s = v.at(rand() % v.size());
 #ifdef _WIN32
-		// Conversion pour console
+		// Conversion pour afficher correctement à la console de Windows
 		vector<char> v(s.size() + 1);
 		AnsiToOem(s.c_str(), &v[0]);
 		s = string(begin(v), end(v));
