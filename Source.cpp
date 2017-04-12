@@ -69,7 +69,8 @@ int main(int argc, char* argv[])
 	srand((unsigned int)time(NULL));
 
 	// Boucle principale
-	while (true)
+	bool pas_termine = true;
+	while (pas_termine)
 	{
 		string s = v.at(rand() % v.size());
 #ifdef _WIN32
@@ -86,6 +87,12 @@ int main(int argc, char* argv[])
 		do
 		{
 			getline(cin, t);
+
+			if (t.length() == 0)
+			{
+				pas_termine = false;
+				break;
+			}
 #ifdef _WIN32
 			t += '\0';
 #endif
