@@ -7,7 +7,7 @@ C'est un programme d'entraînement de copier-coller afin de pratiquer la mémoir
 Sur Windows, utilisez Visual Studio. Sur Linux, utilisez g++. 
 
 ```
-g++ -o MotsTyper Source.cpp
+g++ -std=c++14 -o MotsTyper Source.cpp
 ```
 
 Pour compiler sur Linux un exécutable pour Windows, utilisez cette commande:
