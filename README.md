@@ -2,6 +2,8 @@
 
 C'est un programme d'entraînement de copier-coller afin de pratiquer la mémoire des mots. 
 
+C'est un bon exemple d'affichage de caractères accentués sous Win32. Par exemple, Windows affiche le caractère `é` d'un string comme `Ú` à la console. Ce programme montre comment y apporter une correction. 
+
 ## Compiler
 
 Sur Windows, utilisez Visual Studio. Sur Linux, utilisez g++. 
