@@ -74,3 +74,5 @@ une équipe
 Recueillir des défectuosités
 bagage intellectuel
 bloquer les vecteurs d'attaque potentiels
+Les piranhas se regroupent pour attaquer une proie.
+Un signe ambigu génère des questions ambiguës.
