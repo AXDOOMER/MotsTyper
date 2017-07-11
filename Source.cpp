@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2016-2017 Alexandre-Xavier Labonté-Lamoureux
  *
- * Permission to use, copy, modify, and distribute this software for any
+ * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
@@ -18,7 +18,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <stdlib.h>     /* srand, rand */
+#include <stdlib.h>     /* srand, rand, exit, EXIT_FAILURE */
 #include <time.h>       /* time */
 #ifdef _WIN32
 #include <windows.h>
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 	if (!fichier.good())
 	{
 		cerr << "Fichier introuvable" << endl;
-		return 1;
+		exit(EXIT_FAILURE);
 	}
 
 	// Storage des mots
@@ -64,6 +64,12 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	if (v.size() == 0)
+	{
+		cerr << "Fichier vide" << endl;
+		exit(EXIT_FAILURE);
+	}
+
 	// Fermeture du fichier et initialisation du RNG
 	fichier.close();
 	srand((unsigned int)time(NULL));
@@ -75,9 +81,9 @@ int main(int argc, char* argv[])
 		string s = v.at(rand() % v.size());
 #ifdef _WIN32
 		// Conversion pour afficher correctement à la console de Windows
-		vector<char> v(s.size() + 1);
-		AnsiToOem(s.c_str(), &v[0]);
-		s = string(begin(v), end(v));
+		vector<char> a(s.size() + 1);
+		AnsiToOem(s.c_str(), &a[0]);
+		s = string(begin(a), end(a));
 #endif
 		// Affichage
 		cout << s << endl;
