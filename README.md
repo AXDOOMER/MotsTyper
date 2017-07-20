@@ -9,12 +9,12 @@ C'est un bon exemple d'affichage de caractères accentués sous Win32. Par exemp
 Sur Windows, utilisez Visual Studio. Sur Linux, utilisez g++. 
 
 ```
-g++ -std=c++11 -o MotsTyper Source.cpp
+g++ -o MotsTyper Source.cpp
 ```
 
 Pour compiler sur Linux un exécutable pour Windows, utilisez cette commande:
 ```
-i686-w64-mingw32-g++ -static-libgcc -static-libstdc++ -std=c++11 -o MotsTyper.exe Source.cpp
+i686-w64-mingw32-g++ -static-libgcc -static-libstdc++ -o MotsTyper.exe Source.cpp
 ```
 
 ## Utilisation

@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 		// Ne pas ajouter une ligne vide ou des espaces suivant la fin d'un mot
 		while (ligne.length() > 0 && ligne[ligne.size() - 1] == ' ')
 		{
-			ligne.pop_back();
+			ligne.erase(ligne.size() - 1);
 		}
 
 		if (ligne.length() > 0)
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
 		// Conversion pour afficher correctement à la console de Windows
 		vector<char> a(s.size() + 1);
 		AnsiToOem(s.c_str(), &a[0]);
-		s = string(begin(a), end(a));
+		s = string(a.begin(), a.end());
 #endif
 		// Affichage
 		cout << s << endl;
