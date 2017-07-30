@@ -76,3 +76,5 @@ bagage intellectuel
 bloquer les vecteurs d'attaque potentiels
 Les piranhas se regroupent pour attaquer une proie.
 Un signe ambigu génère des questions ambiguës.
+il détaille les concepts
+Une nouvelle amélioration est terminée.
